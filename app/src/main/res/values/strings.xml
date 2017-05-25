@@ -1,4 +1,16 @@
 <resources>
     <string name="app_name">Apolo</string>
     <string name="action_settings">Settings</string>
+
+    <string name="main_string">Unlike their traditional desktop counterparts which, in the majority of cases, have a single entry point from the launcher shortcut and run as a single monolithic process, Android apps have a much more complex structure. A typical Android app is constructed out of multiple app components, including activities, fragments, services, content providers and broadcast receivers.
+
+Most of these app components are declared in the app manifest which is used by the Android OS to decide how to integrate your app into the overall user experience with their devices. While, as mentioned earlier, a desktop app is traditionally running as a monolithic process, a properly written Android app needs to be much more flexible as the user weaves their way through the different apps on their device, constantly switching flows and tasks.
+
+For example, consider what happens when you share a photo in your favorite social network app. The app triggers a camera intent from which the Android OS launches a camera app to handle the request. At this point, the user leaves the social network app but their experience is seamless. The camera app, in turn, may trigger other intents, like launching the file chooser, which may launch another app. Eventually the user comes back to the social networking app and shares the photo. Also, the user could be interrupted by a phone call at any point in this process and come back to share the photo after finishing the phone call.
+
+In Android, this app-hopping behavior is common, so your app must handle these flows correctly. Keep in mind that mobile devices are resource constrained, so at any time, the operating system may need to kill some apps to make room for new ones.
+
+The point of all this is that your app components can be launched individually and out-of-order, and can be destroyed at anytime by the user or the system. Because app components are ephemeral and their lifecycle (when they are created and destroyed) are not under your control, you should not store any app data or state in your app components and your app components should not depend on each other.
+
+</string>
 </resources>
