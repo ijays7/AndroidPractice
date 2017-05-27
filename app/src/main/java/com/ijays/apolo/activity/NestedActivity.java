@@ -47,12 +47,9 @@ public class NestedActivity extends BaseActivity {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         mRecyclerView.hasFixedSize();
 
-        mTopBarLayout.post(new Runnable() {
-            @Override
-            public void run() {
-                mTopBarHeight = mTopBarLayout.getMeasuredHeight();
-                mNestedScrollView.scrollTo(0, 0);
-            }
+        mTitleBarBgView.post(() -> {
+            mTopBarHeight = mTopBarLayout.getMeasuredHeight();
+            mNestedScrollView.scrollTo(0, 0);
         });
 
         mNestedScrollView.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
