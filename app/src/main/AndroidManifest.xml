@@ -22,6 +22,9 @@
         <activity
             android:name=".activity.NestedActivity"
             android:theme="@style/AppTheme.NoActionBar.Immerse" />
+        <activity
+            android:name=".activity.WaveActivity"
+            android:theme="@style/AppTheme" />
     </application>
 
 </manifest>
