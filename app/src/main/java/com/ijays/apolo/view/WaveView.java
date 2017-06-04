@@ -10,6 +10,7 @@ import android.graphics.Path;
 import android.graphics.Shader;
 import android.os.Build;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.View;
@@ -209,6 +210,7 @@ public class WaveView extends View {
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public void onPause() {
         if (mWaveAnimator != null && mWaveAnimator.isRunning()
                 && Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
@@ -216,9 +218,9 @@ public class WaveView extends View {
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public void onResume() {
-        if (mWaveAnimator != null && mWaveAnimator.isRunning()
-                && Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+        if (mWaveAnimator != null && mWaveAnimator.isRunning()) {
             mWaveAnimator.resume();
         }
     }
