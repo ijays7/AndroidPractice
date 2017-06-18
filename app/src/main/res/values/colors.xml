@@ -12,4 +12,6 @@
 
     <color name="wave_start">#aaFF7E37</color>
     <color name="wave_end">#aaEB4438</color>
+
+    <color name="grey">#e6e6e6</color>
 </resources>
