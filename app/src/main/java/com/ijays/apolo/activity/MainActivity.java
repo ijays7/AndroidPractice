@@ -47,6 +47,11 @@ public class MainActivity extends ImmersiveActivity implements Toolbar.OnMenuIte
         startActivity(new Intent(MainActivity.this, ActiveProgressbarActivity.class));
     }
 
+    @OnClick(R.id.bt_view_stub)
+    void onClickViewStub() {
+        startActivity(new Intent(MainActivity.this,ViewStubTestActivity.class));
+    }
+
 
     @Override
     public boolean onMenuItemClick(MenuItem item) {

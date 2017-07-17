@@ -83,11 +83,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="wave button" />
+
             <Button
                 android:id="@+id/bt_active_progress"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="active progress" />
+
+            <Button
+                android:id="@+id/bt_view_stub"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="viewStub test"/>
 
             <android.support.v7.widget.AppCompatTextView
                 android:layout_width="match_parent"
