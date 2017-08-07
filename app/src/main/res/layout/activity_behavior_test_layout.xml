@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/news_header_pager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/google_blue"
+        app:layout_behavior="@string/behavior_header">
+
+        <TextView
+            android:id="@+id/news_tv_header_pager"
+            style="@style/TextAppearance.AppCompat.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="250dip"
+            android:layout_gravity="center_vertical"
+            android:gravity="center"
+            android:padding="12dip"
+            android:text="WeatherPager"
+            android:textColor="@android:color/white" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/news_header_title_height"
+        android:layout_marginTop="@dimen/news_header_title_init_offset"
+        android:background="@color/google_orange"
+        app:layout_behavior="@string/behavior_title" />
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        app:layout_behavior="@string/behavior_tab"
+        app:tabTextColor="@color/white" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_behavior="@string/behavior_content" />
+</android.support.design.widget.CoordinatorLayout>

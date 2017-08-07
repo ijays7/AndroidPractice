@@ -2,6 +2,7 @@ package com.ijays.apolo.util;
 
 import android.content.Context;
 import android.util.TypedValue;
+import android.view.Gravity;
 
 /**
  * Created by ijaysdev on 28/05/2017.
@@ -17,5 +18,9 @@ public class ViewUtils {
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP,
                 spVal, context.getResources().getDisplayMetrics());
 
+    }
+
+    public static int resolveGravity(int gravity) {
+        return gravity == Gravity.NO_GRAVITY ? Gravity.START | Gravity.TOP : gravity;
     }
 }

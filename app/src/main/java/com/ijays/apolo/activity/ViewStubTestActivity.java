@@ -1,6 +1,5 @@
 package com.ijays.apolo.activity;
 
-import android.view.View;
 import android.view.ViewStub;
 
 import com.ijays.apolo.R;
@@ -25,7 +24,9 @@ public class ViewStubTestActivity extends BaseActivity {
 
     @OnClick(R.id.bt_view_stub_inflate)
     void onClickInflate() {
-        mViewStub.inflate();
+
+        if (mViewStub.getParent() != null)
+            mViewStub.inflate();
 //        mViewStub.setVisibility(View.VISIBLE);
     }
 }

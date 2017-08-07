@@ -49,7 +49,12 @@ public class MainActivity extends ImmersiveActivity implements Toolbar.OnMenuIte
 
     @OnClick(R.id.bt_view_stub)
     void onClickViewStub() {
-        startActivity(new Intent(MainActivity.this,ViewStubTestActivity.class));
+        startActivity(new Intent(MainActivity.this, ViewStubTestActivity.class));
+    }
+
+    @OnClick(R.id.bt_behavior)
+    void onClickBehavior() {
+        startActivity(new Intent(MainActivity.this, BehaviorTestActivity.class));
     }
 
 

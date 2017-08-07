@@ -27,6 +27,7 @@
             android:theme="@style/AppTheme" />
         <activity android:name=".activity.ActiveProgressbarActivity" />
         <activity android:name=".activity.ViewStubTestActivity" />
+        <activity android:name=".activity.BehaviorTestActivity" />
     </application>
 
 </manifest>

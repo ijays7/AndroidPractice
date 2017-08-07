@@ -94,7 +94,14 @@
                 android:id="@+id/bt_view_stub"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="viewStub test"/>
+                android:text="viewStub test" />
+
+            <Button
+                android:id="@+id/bt_behavior"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="behavior test"
+                android:visibility="gone" />
 
             <android.support.v7.widget.AppCompatTextView
                 android:layout_width="match_parent"

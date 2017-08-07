@@ -14,4 +14,9 @@ The point of all this is that your app components can be launched individually a
 
 </string>
     <string name="current_progress">当前进度：%1$s</string>
+
+    <string name="behavior_content">com.ijays.apolo.behavior.NewsContentBehavior</string>
+    <string name="behavior_tab">com.ijays.apolo.behavior.NewsTabBehavior</string>
+    <string name="behavior_header">com.ijays.apolo.behavior.NewsHeaderPagerBehavior</string>
+    <string name="behavior_title">com.ijays.apolo.behavior.NewsTitleBehavior</string>
 </resources>
