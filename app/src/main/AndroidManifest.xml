@@ -28,6 +28,8 @@
         <activity android:name=".activity.ActiveProgressbarActivity" />
         <activity android:name=".activity.ViewStubTestActivity" />
         <activity android:name=".activity.BehaviorTestActivity" />
+        <activity android:name=".activity.MaterialAnimActivity" />
+        <activity android:name=".activity.SharedElementActivity" />
     </application>
 
 </manifest>

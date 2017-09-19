@@ -33,8 +33,9 @@ public class MainActivity extends ImmersiveActivity implements Toolbar.OnMenuIte
 
     @OnClick(R.id.fab)
     void onClickFab(View view) {
-        Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show();
+//        Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                .setAction("Action", null).show();
+        startActivity(new Intent(this, MaterialAnimActivity.class));
     }
 
     @OnClick(R.id.bt_wave)
