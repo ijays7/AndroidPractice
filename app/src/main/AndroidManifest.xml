@@ -30,6 +30,7 @@
         <activity android:name=".activity.BehaviorTestActivity" />
         <activity android:name=".activity.MaterialAnimActivity" />
         <activity android:name=".activity.SharedElementActivity" />
+        <activity android:name=".activity.TransitionActivity" />
     </application>
 
 </manifest>

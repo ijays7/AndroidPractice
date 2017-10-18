@@ -97,6 +97,12 @@
                 android:text="viewStub test" />
 
             <Button
+                android:id="@+id/bt_transition"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="transition test" />
+
+            <Button
                 android:id="@+id/bt_behavior"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
