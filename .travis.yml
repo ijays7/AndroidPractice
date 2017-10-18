@@ -9,6 +9,7 @@ components:
 - android-26
 - extra-android-m2repository
 - extra-android-support
+
 licenses:
 - android-sdk-license-.+
 - '.+'
