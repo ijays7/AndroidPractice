@@ -1,6 +1,11 @@
 package com.ijays.apolo.activity;
 
+import android.annotation.TargetApi;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.view.animation.FastOutSlowInInterpolator;
+import android.transition.Slide;
+import android.view.Gravity;
 import android.view.View;
 
 import com.ijays.apolo.R;
@@ -30,8 +35,19 @@ public class TransitionActivity extends BaseActivity implements TransitionMainFr
                 .add(R.id.fl_container, mainFragment)
                 .commit();
 
+        setupTransition();
         mainFragment.setOnItemClickListener(this);
 
+    }
+
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    private void setupTransition() {
+        Slide slide = new Slide(Gravity.LEFT);
+        slide.setDuration(1000);
+        slide.setInterpolator(new FastOutSlowInInterpolator());
+        slide.excludeTarget(android.R.id.statusBarBackground, true);
+        slide.excludeTarget(android.R.id.navigationBarBackground, true);
+        getWindow().setExitTransition(slide);
     }
 
     @Override

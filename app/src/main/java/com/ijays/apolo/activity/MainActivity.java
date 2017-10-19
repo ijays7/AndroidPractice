@@ -3,6 +3,7 @@ package com.ijays.apolo.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
@@ -39,17 +40,20 @@ public class MainActivity extends ImmersiveActivity implements Toolbar.OnMenuIte
 
     @OnClick(R.id.bt_wave)
     void onClickWave() {
-        startActivity(new Intent(MainActivity.this, WaveActivity.class));
+        Intent intent = new Intent(MainActivity.this, WaveActivity.class);
+        startActivity(intent, ActivityOptionsCompat.makeSceneTransitionAnimation(this).toBundle());
     }
 
     @OnClick(R.id.bt_active_progress)
     void onClickActive() {
-        startActivity(new Intent(MainActivity.this, ActiveProgressbarActivity.class));
+        Intent intent = new Intent(MainActivity.this, ActiveProgressbarActivity.class);
+        startActivity(intent, ActivityOptionsCompat.makeSceneTransitionAnimation(this).toBundle());
     }
 
     @OnClick(R.id.bt_view_stub)
     void onClickViewStub() {
-        startActivity(new Intent(MainActivity.this, ViewStubTestActivity.class));
+        Intent intent = new Intent(MainActivity.this, ViewStubTestActivity.class);
+        startActivity(intent, ActivityOptionsCompat.makeSceneTransitionAnimation(this).toBundle());
     }
 
     @OnClick(R.id.bt_behavior)

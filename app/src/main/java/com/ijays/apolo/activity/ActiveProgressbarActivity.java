@@ -1,6 +1,11 @@
 package com.ijays.apolo.activity;
 
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
+import android.transition.Slide;
+import android.transition.Transition;
+import android.view.Gravity;
 import android.widget.TextView;
 
 import com.ijays.apolo.R;
@@ -30,6 +35,10 @@ public class ActiveProgressbarActivity extends BaseActivity {
     protected void initViews(Bundle savedInstanceState) {
         super.initViews(savedInstanceState);
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            slide();
+        }
+
         mCircleBar.setProgress(100).
                 startProgressAnimation();
 
@@ -43,6 +52,15 @@ public class ActiveProgressbarActivity extends BaseActivity {
             mHorizontalPb.setProgress(100);
         }));
 
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    private void slide() {
+        Slide slide = new Slide(Gravity.BOTTOM);
+        slide.setDuration(400);
+        slide.excludeTarget(android.R.id.statusBarBackground, true);
+        slide.excludeTarget(android.R.id.navigationBarBackground, true);
+        getWindow().setEnterTransition(slide);
     }
 
 }

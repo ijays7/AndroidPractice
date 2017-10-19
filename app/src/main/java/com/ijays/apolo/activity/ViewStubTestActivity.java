@@ -1,17 +1,16 @@
 package com.ijays.apolo.activity;
 
-import android.animation.AnimatorSet;
-import android.support.animation.DynamicAnimation;
+import android.annotation.TargetApi;
+import android.os.Build;
+import android.os.Bundle;
 import android.support.animation.SpringAnimation;
 import android.support.animation.SpringForce;
+import android.transition.Fade;
 import android.view.View;
 import android.view.ViewStub;
-import android.widget.Button;
 import android.widget.ImageView;
 
 import com.ijays.apolo.R;
-
-import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -31,6 +30,23 @@ public class ViewStubTestActivity extends BaseActivity {
         return R.layout.activity_view_stub_layout;
     }
 
+    @Override
+    protected void initViews(Bundle savedInstanceState) {
+        super.initViews(savedInstanceState);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            setupTransition();
+        }
+    }
+
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    private void setupTransition() {
+        Fade fade = new Fade();
+        fade.setDuration(500L);
+        fade.excludeTarget(android.R.id.statusBarBackground, true);
+        fade.excludeTarget(android.R.id.navigationBarBackground, true);
+        getWindow().setEnterTransition(fade);
+    }
 
     @OnClick(R.id.bt_view_stub_inflate)
     void onClickInflate() {
