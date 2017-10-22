@@ -9,6 +9,7 @@ import android.support.transition.TransitionManager;
 import android.support.transition.TransitionSet;
 import android.support.v4.view.ViewCompat;
 import android.view.Gravity;
+import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
@@ -41,8 +42,7 @@ public class ClipTransitionFragment extends BaseFragment {
     }
 
     @Override
-    protected void initView() {
-        super.initView();
+    protected void initView(View view) {
         //修改剪切的区域，在Api18 即Android4.3之前无效
         mTransition = new ChangeClipBounds();
         //修改View 的缩放和旋转

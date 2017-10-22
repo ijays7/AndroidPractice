@@ -30,7 +30,7 @@ public class TransitionMainFragment extends ListFragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        String[] dataList = {"AutoTransition", "Simple Transition API","Scene"};
+        String[] dataList = {"AutoTransition", "Simple Transition API","Scene","Circle Anim"};
         ArrayAdapter adapter = new ArrayAdapter(getContext(), android.R.layout.simple_list_item_1, dataList);
         setListAdapter(adapter);
 

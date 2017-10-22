@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/fl_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/google_green" />
+
+    <ImageView
+        android:id="@+id/iv_circle_1"
+        android:layout_width="84dp"
+        android:layout_height="84dp"
+        android:src="@drawable/circle_view_svg"
+        android:tint="@color/google_blue"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/iv_circle_2" />
+
+    <ImageView
+        android:id="@+id/iv_circle_2"
+        android:layout_width="84dp"
+        android:layout_height="84dp"
+        android:tint="@color/google_red"
+        android:src="@drawable/circle_view_svg"
+        app:layout_constraintLeft_toRightOf="@id/iv_circle_1"
+        app:layout_constraintRight_toLeftOf="@id/iv_circle_3" />
+
+    <ImageView
+        android:id="@+id/iv_circle_3"
+        android:layout_width="84dp"
+        android:layout_height="84dp"
+        android:src="@drawable/circle_view_svg"
+        android:tint="@color/google_orange"
+        app:layout_constraintLeft_toRightOf="@id/iv_circle_2"
+        app:layout_constraintRight_toLeftOf="@id/iv_circle_4" />
+
+    <ImageView
+        android:id="@+id/iv_circle_4"
+        android:layout_width="84dp"
+        android:layout_height="84dp"
+        android:src="@drawable/circle_view_svg"
+        app:layout_constraintRight_toRightOf="parent" />
+</android.support.constraint.ConstraintLayout>

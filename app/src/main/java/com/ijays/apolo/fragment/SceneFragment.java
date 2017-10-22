@@ -2,6 +2,7 @@ package com.ijays.apolo.fragment;
 
 import android.support.transition.Scene;
 import android.support.transition.TransitionManager;
+import android.view.View;
 import android.widget.FrameLayout;
 
 import com.ijays.apolo.R;
@@ -29,8 +30,7 @@ public class SceneFragment extends BaseFragment {
     }
 
     @Override
-    protected void initView() {
-        super.initView();
+    protected void initView(View view) {
         mScene1 = Scene.getSceneForLayout(mContainer, R.layout.scene_one_layout, mContainer.getContext());
         mScene2 = Scene.getSceneForLayout(mContainer, R.layout.scene_two_layout, mContainer.getContext());
         mScenes = new Scene[]{mScene1, mScene2};

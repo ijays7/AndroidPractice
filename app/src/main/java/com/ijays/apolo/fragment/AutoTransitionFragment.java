@@ -30,8 +30,7 @@ public class AutoTransitionFragment extends BaseFragment {
     }
 
     @Override
-    protected void initView() {
-        super.initView();
+    protected void initView(View view) {
 
         //指明默认的效果，先渐隐，在相应的move，resize，最后再渐显
         mTransition = new AutoTransition();

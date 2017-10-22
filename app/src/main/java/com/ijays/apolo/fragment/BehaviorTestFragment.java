@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import com.ijays.apolo.R;
 import com.ijays.apolo.adapter.BehaviorAdapter;
@@ -45,7 +46,7 @@ public class BehaviorTestFragment extends BaseFragment {
     }
 
     @Override
-    protected void initView() {
+    protected void initView(View view) {
         List<String> dataList = new ArrayList<>();
         for (int i = 0; i < 20; i++) {
             dataList.add("This is item-->" + i);

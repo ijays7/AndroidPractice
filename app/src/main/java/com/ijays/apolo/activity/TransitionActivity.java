@@ -11,6 +11,7 @@ import android.view.View;
 import com.ijays.apolo.R;
 import com.ijays.apolo.fragment.AutoTransitionFragment;
 import com.ijays.apolo.fragment.BaseFragment;
+import com.ijays.apolo.fragment.CircleAnimFragment;
 import com.ijays.apolo.fragment.ClipTransitionFragment;
 import com.ijays.apolo.fragment.SceneFragment;
 import com.ijays.apolo.fragment.TransitionMainFragment;
@@ -62,6 +63,9 @@ public class TransitionActivity extends BaseActivity implements TransitionMainFr
                 break;
             case 2:
                 fragment = new SceneFragment();
+                break;
+            case 3:
+                fragment = new CircleAnimFragment();
                 break;
         }
         getSupportFragmentManager()

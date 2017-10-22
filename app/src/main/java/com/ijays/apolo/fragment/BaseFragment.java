@@ -21,7 +21,7 @@ public abstract class BaseFragment extends Fragment {
         ButterKnife.bind(this, view);
 
         initData();
-        initView();
+        initView(view);
 
         return view;
     }
@@ -32,7 +32,7 @@ public abstract class BaseFragment extends Fragment {
 
     }
 
-    protected void initView() {
+    protected void initView(View view) {
 
     }
 }
