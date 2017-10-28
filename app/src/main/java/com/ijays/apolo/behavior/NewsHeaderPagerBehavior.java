@@ -11,7 +11,6 @@ import android.widget.OverScroller;
 
 import com.ijays.apolo.BuildConfig;
 import com.ijays.apolo.R;
-import com.ijays.apolo.activity.App;
 import com.ijays.apolo.behavior.helper.ViewOffsetBehavior;
 
 import java.lang.ref.WeakReference;
