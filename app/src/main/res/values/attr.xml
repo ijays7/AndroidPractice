@@ -14,4 +14,14 @@
             <enum name="sin_and_cos" value="2" />
         </attr>
     </declare-styleable>
+
+    <declare-styleable name="CircleProgressBar">
+        <attr name="circle_bg_color" format="color" />
+        <attr name="circle_progress_color" format="color" />
+
+        <attr name="circle_total" format="integer" />
+        <attr name="circle_progress" format="integer" />
+        <attr name="circle_inner_text" format="string" />
+        <attr name="circle_outer_text" format="string" />
+    </declare-styleable>
 </resources>

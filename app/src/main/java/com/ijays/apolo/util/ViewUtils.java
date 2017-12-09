@@ -9,6 +9,9 @@ import android.view.Gravity;
  */
 
 public class ViewUtils {
+    private static int widthPixels = -1;
+    private static int heightPixels = -1;
+
     public static int dp2Px(Context context, int dpValue) {
         float scale = context.getResources().getDisplayMetrics().density;
         return (int) (dpValue * scale + 0.5f);
@@ -22,5 +25,20 @@ public class ViewUtils {
 
     public static int resolveGravity(int gravity) {
         return gravity == Gravity.NO_GRAVITY ? Gravity.START | Gravity.TOP : gravity;
+    }
+
+    public static int getScreenWidth(Context context) {
+        if (widthPixels <= 0) {
+            widthPixels = context.getResources().getDisplayMetrics().widthPixels;
+        }
+        return widthPixels;
+    }
+
+
+    public static int getScreenHeight(Context context) {
+        if (heightPixels <= 0) {
+            heightPixels = context.getResources().getDisplayMetrics().heightPixels;
+        }
+        return heightPixels;
     }
 }

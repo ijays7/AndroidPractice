@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.ijays.apolo.R;
 import com.ijays.apolo.view.CircleActiveProgressBar;
 import com.ijays.apolo.view.HorizontalProgressBar;
+import com.ijays.apolo.view.NiceProgressBar;
 
 import butterknife.BindView;
 
@@ -19,10 +20,16 @@ import butterknife.BindView;
  */
 
 public class ActiveProgressbarActivity extends BaseActivity {
-    @BindView(R.id.circle_bar)
+    @BindView(R.id.circle_3)
     CircleActiveProgressBar mCircleBar;
+    @BindView(R.id.circle_1)
+    CircleActiveProgressBar mCircleBar1;
+    @BindView(R.id.circle_2)
+    CircleActiveProgressBar mCircleBar2;
     @BindView(R.id.horizontal_progress_bar)
     HorizontalProgressBar mHorizontalPb;
+    @BindView(R.id.pb1)
+    NiceProgressBar mPb1;
     @BindView(R.id.txt_progress)
     TextView mProgressTxt;
 
@@ -39,7 +46,11 @@ public class ActiveProgressbarActivity extends BaseActivity {
             slide();
         }
 
-        mCircleBar.setProgress(100).
+        mCircleBar.setProgress(10543).
+                startProgressAnimation();
+        mCircleBar1.setProgress(24382).
+                startProgressAnimation();
+        mCircleBar2.setProgress(209830).
                 startProgressAnimation();
 
         mCircleBar.setOnProgressListener(currentProgress -> {
@@ -51,7 +62,11 @@ public class ActiveProgressbarActivity extends BaseActivity {
         mHorizontalPb.setOnClickListener((v -> {
             mHorizontalPb.setProgress(100);
         }));
-
+        mPb1.setTextMax(33)
+                .setTextColor(getResources().getColor(R.color.google_red))
+                .setDefaultWheelColor(getResources().getColor(R.color.google_blue))
+                .setWheelColor(getResources().getColor(R.color.google_orange))
+                .show();
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)

@@ -1,16 +1,25 @@
 package com.ijays.apolo.activity;
 
 import android.annotation.TargetApi;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.animation.SpringAnimation;
 import android.support.animation.SpringForce;
+import android.support.annotation.NonNull;
+import android.text.TextUtils;
 import android.transition.Fade;
 import android.view.View;
 import android.view.ViewStub;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageView;
 
 import com.ijays.apolo.R;
+import com.razerdp.widget.animatedpieview.AnimatedPieView;
+import com.razerdp.widget.animatedpieview.AnimatedPieViewConfig;
+import com.razerdp.widget.animatedpieview.callback.OnPieSelectListener;
+import com.razerdp.widget.animatedpieview.data.IPieInfo;
+import com.razerdp.widget.animatedpieview.data.SimplePieInfo;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -24,6 +33,8 @@ public class ViewStubTestActivity extends BaseActivity {
     ViewStub mViewStub;
     @BindView(R.id.iv_spring_anim)
     ImageView mIvSpringAnim;
+    @BindView(R.id.pie_view)
+    AnimatedPieView mPieView;
 
     @Override
     protected int getLayoutId() {
@@ -37,6 +48,29 @@ public class ViewStubTestActivity extends BaseActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             setupTransition();
         }
+
+        AnimatedPieViewConfig config = new AnimatedPieViewConfig();
+        config.setStartAngle(-90)
+                .addData(new SimplePieInfo(10, getColor("FF446767")), true)
+                .addData(new SimplePieInfo(20, getColor("FFFFD28C")), true)
+                .addData(new SimplePieInfo(100, getColor("FFbb76b4")), true)
+                .addData(new SimplePieInfo(50, getColor("ff957de0"), "长文字test"), false)
+                .setDrawText(true)
+                .setDuration(2000)
+                .setTextLineStrokeWidth(4)
+                .setTextSize(14)
+                .setPieRadiusScale(0.7f)
+                .setOnPieSelectListener(new OnPieSelectListener<IPieInfo>() {
+                    @Override
+                    public void onSelectPie(@NonNull IPieInfo pieInfo, boolean isScaleUp) {
+                        if (isScaleUp) {
+//                            Toast.makeText(MainActivity.this, pieInfo.getDesc(), Toast.LENGTH_SHORT).show();
+                        }
+
+                    }
+                });
+        mPieView.applyConfig(config);
+        mPieView.start();
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
@@ -73,5 +107,11 @@ public class ViewStubTestActivity extends BaseActivity {
         animationX.start();
         animationY.start();
 
+    }
+
+    private int getColor(String colorStr) {
+        if (TextUtils.isEmpty(colorStr)) return Color.BLACK;
+        if (!colorStr.startsWith("#")) colorStr = "#" + colorStr;
+        return Color.parseColor(colorStr);
     }
 }

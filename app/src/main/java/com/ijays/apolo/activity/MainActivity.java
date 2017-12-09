@@ -1,14 +1,21 @@
 package com.ijays.apolo.activity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.ActivityOptionsCompat;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.ijays.apolo.AppConstants;
 import com.ijays.apolo.R;
+import com.ijays.apolo.util.ScrollUtil;
+import com.ijays.apolo.util.ViewUtils;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -18,6 +25,8 @@ public class MainActivity extends ImmersiveActivity implements Toolbar.OnMenuIte
     TabLayout mTabLayout;
     @BindView(R.id.toolbar)
     Toolbar mToolbar;
+    @BindView(R.id.scroll_view)
+    NestedScrollView mScrollView;
 
     @Override
     protected int getLayoutId() {
@@ -33,9 +42,23 @@ public class MainActivity extends ImmersiveActivity implements Toolbar.OnMenuIte
 
     @OnClick(R.id.fab)
     void onClickFab(View view) {
-//        Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                .setAction("Action", null).show();
-        startActivity(new Intent(this, MaterialAnimActivity.class));
+        //保存ScrollView的图像并存储
+        View topView = View.inflate(view.getContext(), R.layout.top_layout, null);
+        View bottomView = View.inflate(view.getContext(), R.layout.logo_layout, null);
+
+        Bitmap topBitmap = ScrollUtil.getViewBitmap(topView);
+        Bitmap bottomBitmap = ScrollUtil.getViewBitmap(bottomView);
+        Log.e("SONGJIE", "bottom bm width-->" + bottomBitmap.getWidth());
+
+        Log.e("SONGJIE", "width-->" + topBitmap.getWidth() + "---height--->" + topBitmap.getHeight());
+
+        String mPath = AppConstants.MOCHA_PATH + "test.png";
+
+        Bitmap bm = ScrollUtil.shotScrollView(mScrollView);
+        Log.e("SONGJIE", "bm is null?--" + (bm == null));
+        String path = ScrollUtil.saveImageToFile(mPath, ScrollUtil.addBitmap(topBitmap,bm, bottomBitmap),
+                100, Bitmap.CompressFormat.PNG);
+        Log.e("SONGJIE", "save path is -->" + path);
     }
 
     @OnClick(R.id.bt_wave)

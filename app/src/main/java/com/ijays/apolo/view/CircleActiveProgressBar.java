@@ -2,21 +2,21 @@ package com.ijays.apolo.view;
 
 import android.animation.ValueAnimator;
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Rect;
 import android.graphics.RectF;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
+import android.text.TextPaint;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
-import android.view.animation.AccelerateDecelerateInterpolator;
-import android.view.animation.AccelerateInterpolator;
-import android.view.animation.BounceInterpolator;
 import android.view.animation.DecelerateInterpolator;
-import android.view.animation.OvershootInterpolator;
 
 import com.ijays.apolo.R;
+import com.ijays.apolo.util.ViewUtils;
 
 /**
  * Created by ijaysdev on 02/06/2017.
@@ -46,8 +46,15 @@ public class CircleActiveProgressBar extends View {
 
     private Paint mPaintBg;
     private Paint mPaintProgress;
+    private Paint mTextPaint;
+
+    private Rect mBounds;
+    private Rect mOuterTextBounds;
 
     private RectF mRectF;
+
+    private String mInnerText;// 圆圈中间的文字
+    private String mBottomText;// 圆圈底部的文字
 
     private ValueAnimator mValueAnimator;
     private OnProgressListener mOnProgressListener;
@@ -64,21 +71,35 @@ public class CircleActiveProgressBar extends View {
     public CircleActiveProgressBar(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 
-        init(context);
+        init(context, attrs);
     }
 
-    private void init(Context context) {
-        mProgressColor = ContextCompat.getColor(context, R.color.colorAccent);
-        mCircleBgColor = ContextCompat.getColor(context, R.color.wave_end);
+    private void init(Context context, AttributeSet attrs) {
+        TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.CircleProgressBar);
 
-        mCircleWidth = 15;
+        mProgressColor = ta.getColor(R.styleable.CircleProgressBar_circle_progress_color,
+                ContextCompat.getColor(context, R.color.colorAccent));
+        mCircleBgColor = ta.getColor(R.styleable.CircleProgressBar_circle_bg_color,
+                ContextCompat.getColor(context, R.color.colorPrimary));
+        mProgress = ta.getInt(R.styleable.CircleProgressBar_circle_progress, 0);
+        mTotalProgress = ta.getInt(R.styleable.CircleProgressBar_circle_total, 100);
+        mInnerText = ta.getString(R.styleable.CircleProgressBar_circle_inner_text);
+        mBottomText = ta.getString(R.styleable.CircleProgressBar_circle_outer_text);
+        ta.recycle();
+
+        mCircleWidth = 10;
         mAnimDuration = 800;
         mAnimDelayTime = 500;
-        mTotalProgress = 360;
+        mTotalProgress = 244755;
         mPaintBg = getPaint(mCircleWidth, mCircleBgColor);
         mPaintProgress = getPaint(mCircleWidth, mProgressColor);
+        mTextPaint = new TextPaint(Paint.ANTI_ALIAS_FLAG);
+        mTextPaint.setColor(Color.BLACK);
+        mTextPaint.setTextSize(ViewUtils.sp2px(getContext(), 14));
 
         mRectF = new RectF();
+        mBounds = new Rect();
+        mOuterTextBounds = new Rect();
 
         initAnim();
 
@@ -117,7 +138,7 @@ public class CircleActiveProgressBar extends View {
         super.onSizeChanged(w, h, oldw, oldh);
 
         mCenterX = w / 2 - getPaddingLeft() - getPaddingRight();
-        mCenterY = h / 2 - getPaddingTop() - getPaddingBottom();
+        mCenterY = h / 2 - getPaddingTop() - getPaddingBottom() - 30;
 
         mRadius = Math.min(w, h) / 2 - mCircleWidth;
         mRectF.set(mCenterX - mRadius, mCenterY - mRadius,
@@ -130,13 +151,42 @@ public class CircleActiveProgressBar extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
+//        mCurrentProgress = mProgress / mTotalProgress * 360;
+
         canvas.drawCircle(mCenterX, mCenterY, mRadius, mPaintBg);
         canvas.drawArc(mRectF, 270, mCurrentProgress, false, mPaintProgress);
+
+        mTextPaint.getTextBounds(mInnerText, 0, mInnerText.length(), mBounds);
+
+        canvas.drawText(mInnerText, (mRectF.centerX()) - (mTextPaint.measureText(mInnerText) / 2),
+                mRectF.centerY() + mBounds.height() / 2,
+                mTextPaint);
+
+        mTextPaint.getTextBounds(mBottomText, 0, mBottomText.length(), mBounds);
+        canvas.drawText(mBottomText, (mCenterX - (mTextPaint.measureText(mBottomText) / 2)),
+                mRectF.bottom + 40 + mBounds.height() / 2, mTextPaint);
     }
 
-    public CircleActiveProgressBar setProgress(float mProgress) {
+    public CircleActiveProgressBar setProgress(int mProgress) {
         this.mProgress = mProgress;
         initAnim();
+        return this;
+    }
+
+    public CircleActiveProgressBar setTotalProgress(int total) {
+        this.mTotalProgress = total;
+        return this;
+    }
+
+    public CircleActiveProgressBar setBottomText(String text) {
+        this.mBottomText = text;
+        invalidate();
+        return this;
+    }
+
+    public CircleActiveProgressBar setCenterText(int text) {
+        this.mInnerText = text + "人";
+        invalidate();
         return this;
     }
 

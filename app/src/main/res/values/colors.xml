@@ -15,4 +15,12 @@
 
     <color name="grey">#e6e6e6</color>
     <color name="white">#ffffff</color>
+
+    <color name="pastel_pink">#FECDD9</color>
+    <color name="brink_pink">#FC5C83</color>
+    <color name="hawkes_blue">#D0DCFE</color>
+    <color name="cornflower_blue">#668DFC</color>
+    <color name="light_gray">#E5E5E5</color>
+    <color name="seashell">#FFF1F1F1</color>
+    <color name="sunglow">#F9D02F</color>
 </resources>

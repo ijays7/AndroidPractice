@@ -1,20 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
     <com.ijays.apolo.view.CircleActiveProgressBar
-        android:id="@+id/circle_bar"
-        android:layout_width="match_parent"
-        android:layout_height="200dp" />
+        android:id="@+id/circle_1"
+        android:layout_width="80dp"
+        android:layout_height="112dp"
+        android:layout_marginTop="8dp"
+        app:circle_bg_color="@color/pastel_pink"
+        app:circle_inner_text="428人"
+        app:circle_outer_text="活跃顾客"
+        app:circle_progress="70"
+        app:circle_progress_color="@color/brink_pink"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/circle_2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.ijays.apolo.view.CircleActiveProgressBar
+        android:id="@+id/circle_2"
+        android:layout_width="80dp"
+        android:layout_height="112dp"
+        android:layout_marginTop="8dp"
+        app:circle_bg_color="@color/hawkes_blue"
+        app:circle_inner_text="352人"
+        app:circle_outer_text="沉默顾客"
+        app:circle_progress="10"
+        app:circle_progress_color="@color/cornflower_blue"
+        app:layout_constraintLeft_toRightOf="@id/circle_1"
+        app:layout_constraintRight_toLeftOf="@+id/circle_3"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.ijays.apolo.view.CircleActiveProgressBar
+        android:id="@+id/circle_3"
+        android:layout_width="80dp"
+        android:layout_height="112dp"
+        android:layout_marginTop="8dp"
+        app:circle_bg_color="@color/light_gray"
+        app:circle_inner_text="85人"
+        app:circle_outer_text="流失顾客"
+        app:circle_progress="50"
+        app:circle_progress_color="#AAAAAA"
+        app:layout_constraintLeft_toRightOf="@id/circle_2"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
     <TextView
         android:id="@+id/txt_progress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:textSize="14sp" />
+        android:layout_marginTop="20dp"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/circle_1" />
 
 
     <com.ijays.apolo.view.HorizontalProgressBar
@@ -23,5 +66,22 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:paddingTop="50dp" />
-</LinearLayout>
+        android:paddingTop="50dp"
+        app:layout_constraintTop_toBottomOf="@id/txt_progress" />
+
+    <com.ijays.apolo.view.NiceProgressBar
+        android:id="@+id/pb1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+
+    <!--<com.ijays.apolo.view.RingProgressbar-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginTop="20dp" />-->
+
+    <!--<com.ijays.apolo.view.RingProgressbar-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="38dp"-->
+    <!--android:layout_marginTop="20dp" />-->
+</android.support.constraint.ConstraintLayout>

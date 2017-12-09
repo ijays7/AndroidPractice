@@ -52,6 +52,7 @@ public class HorizontalProgressBar extends View {
     private Path mPath;//绘制三角形的path
 
     private RectF mTipRect;
+    private RectF mBgRect;
 
     private Paint mBgPaint;
     private Paint mProgressPaint;
@@ -82,7 +83,7 @@ public class HorizontalProgressBar extends View {
         mAnimDuration = DEFAULT_ANIM_DURATION;
         mTipWidth = ViewUtils.dp2Px(context, 30);
         mTipHeight = ViewUtils.dp2Px(context, 15);
-        mProgressPaintWidth = ViewUtils.dp2Px(context, 4);
+        mProgressPaintWidth = ViewUtils.dp2Px(context, 10);
         mProgress2Tip = ViewUtils.dp2Px(context, 8);
         mTriangleHeight = ViewUtils.dp2Px(context, 3);
         int textSize = ViewUtils.sp2px(context, 10);
@@ -96,6 +97,7 @@ public class HorizontalProgressBar extends View {
         mProgressPaint = getPaint(mProgressPaintWidth, mProgressColor, Paint.Style.STROKE);
         mTipPaint = getPaint(1, mTipColor, Paint.Style.FILL);
 
+        mBgRect = new RectF();
         mTextPaint = new Paint();
         mTextPaint.setColor(mTextColor);
         mTextPaint.setTextSize(textSize);
