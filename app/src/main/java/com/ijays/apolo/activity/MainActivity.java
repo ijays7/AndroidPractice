@@ -21,6 +21,8 @@ import butterknife.BindView;
 import butterknife.OnClick;
 
 public class MainActivity extends ImmersiveActivity implements Toolbar.OnMenuItemClickListener {
+    private static final String TAG = MainActivity.class.getSimpleName();
+
     @BindView(R.id.tabLayout)
     TabLayout mTabLayout;
     @BindView(R.id.toolbar)
@@ -37,28 +39,6 @@ public class MainActivity extends ImmersiveActivity implements Toolbar.OnMenuIte
     protected void initToolbar(Bundle savedInstanceState) {
         mToolbar.inflateMenu(R.menu.menu_main);
         mToolbar.setOnMenuItemClickListener(this);
-    }
-
-
-    @OnClick(R.id.fab)
-    void onClickFab(View view) {
-        //保存ScrollView的图像并存储
-        View topView = View.inflate(view.getContext(), R.layout.top_layout, null);
-        View bottomView = View.inflate(view.getContext(), R.layout.logo_layout, null);
-
-        Bitmap topBitmap = ScrollUtil.getViewBitmap(topView);
-        Bitmap bottomBitmap = ScrollUtil.getViewBitmap(bottomView);
-        Log.e("SONGJIE", "bottom bm width-->" + bottomBitmap.getWidth());
-
-        Log.e("SONGJIE", "width-->" + topBitmap.getWidth() + "---height--->" + topBitmap.getHeight());
-
-        String mPath = AppConstants.MOCHA_PATH + "test.png";
-
-        Bitmap bm = ScrollUtil.shotScrollView(mScrollView);
-        Log.e("SONGJIE", "bm is null?--" + (bm == null));
-        String path = ScrollUtil.saveImageToFile(mPath, ScrollUtil.addBitmap(topBitmap,bm, bottomBitmap),
-                100, Bitmap.CompressFormat.PNG);
-        Log.e("SONGJIE", "save path is -->" + path);
     }
 
     @OnClick(R.id.bt_wave)
@@ -87,6 +67,32 @@ public class MainActivity extends ImmersiveActivity implements Toolbar.OnMenuIte
     @OnClick(R.id.bt_transition)
     void onClickTransition() {
         startActivity(new Intent(MainActivity.this, TransitionActivity.class));
+    }
+
+    @OnClick(R.id.bt_flex_box_test)
+    void onClickFlexBox() {
+        startActivity(new Intent(MainActivity.this, FlexBoxTestActivity.class));
+    }
+
+    @OnClick(R.id.fab)
+    void onClickFab(View view) {
+        //保存ScrollView的图像并存储
+        View topView = View.inflate(view.getContext(), R.layout.top_layout, null);
+        View bottomView = View.inflate(view.getContext(), R.layout.logo_layout, null);
+
+        Bitmap topBitmap = ScrollUtil.getViewBitmap(topView);
+        Bitmap bottomBitmap = ScrollUtil.getViewBitmap(bottomView);
+        Log.e(TAG, "bottom bm width-->" + bottomBitmap.getWidth());
+
+        Log.e(TAG, "width-->" + topBitmap.getWidth() + "---height--->" + topBitmap.getHeight());
+
+        String mPath = AppConstants.MOCHA_PATH + "test.png";
+
+        Bitmap bm = ScrollUtil.shotScrollView(mScrollView);
+        Log.e(TAG, "bm is null?--" + (bm == null));
+        String path = ScrollUtil.saveImageToFile(mPath, ScrollUtil.addBitmap(topBitmap, bm, bottomBitmap),
+                100, Bitmap.CompressFormat.PNG);
+        Log.e(TAG, "save path is -->" + path);
     }
 
 

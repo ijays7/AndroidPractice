@@ -6,4 +6,6 @@
     <dimen name="news_header_title_init_offset">-45dp</dimen>
     <dimen name="news_header_tab_height">45dp</dimen>
     <dimen name="news_header_pager_offset">-90dp</dimen>
+
+    <dimen name="flex_item_decoration_size">8dp</dimen>
 </resources>

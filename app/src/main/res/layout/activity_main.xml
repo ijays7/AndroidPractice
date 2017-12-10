@@ -110,6 +110,12 @@
                 android:text="behavior test"
                 android:visibility="gone" />
 
+            <Button
+                android:id="@+id/bt_flex_box_test"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Flexbox Layout test" />
+
             <android.support.v7.widget.AppCompatTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

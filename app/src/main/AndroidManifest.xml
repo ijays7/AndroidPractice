@@ -34,6 +34,7 @@
         <activity android:name=".activity.MaterialAnimActivity" />
         <activity android:name=".activity.SharedElementActivity" />
         <activity android:name=".activity.TransitionActivity" />
+        <activity android:name=".activity.FlexBoxTestActivity" />
     </application>
 
 </manifest>
