@@ -22,6 +22,8 @@ public class AutoTransitionFragment extends BaseFragment {
     TextView mLabelTv;
     @BindView(R.id.ll_container)
     LinearLayout mContainer;
+    @BindView(R.id.ll)
+    LinearLayout mLL;
     private Transition mTransition;
 
     @Override
@@ -42,10 +44,10 @@ public class AutoTransitionFragment extends BaseFragment {
     void onClickTransition() {
         //在当前场景到下一帧的过渡效果是什么
         TransitionManager.beginDelayedTransition(mContainer, mTransition);
-        if (mLabelTv.getVisibility() == View.VISIBLE) {
-            mLabelTv.setVisibility(View.GONE);
+        if (mLL.getVisibility() == View.VISIBLE) {
+            mLL.setVisibility(View.GONE);
         } else {
-            mLabelTv.setVisibility(View.VISIBLE);
+            mLL.setVisibility(View.VISIBLE);
         }
 //        if (count % 2 == 0) {
 //            mLabelTv.setTextColor(Color.RED);

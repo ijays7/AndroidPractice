@@ -12,7 +12,7 @@ public class ViewUtils {
     private static int widthPixels = -1;
     private static int heightPixels = -1;
 
-    public static int dp2Px(Context context, int dpValue) {
+    public static int dp2Px(Context context, float dpValue) {
         float scale = context.getResources().getDisplayMetrics().density;
         return (int) (dpValue * scale + 0.5f);
     }

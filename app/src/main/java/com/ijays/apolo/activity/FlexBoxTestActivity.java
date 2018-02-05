@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.flexbox.AlignContent;
 import com.google.android.flexbox.AlignItems;
 import com.google.android.flexbox.FlexDirection;
 import com.google.android.flexbox.FlexWrap;
@@ -52,7 +53,11 @@ public class FlexBoxTestActivity extends BaseActivity {
     private List<String> generateDataList() {
         List<String> dataList = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
-            dataList.add("测试item-->" + i);
+            if (i == 8) {
+                dataList.add("这是一条有点长的测试item" + i);
+            } else {
+                dataList.add("测试item-->" + i);
+            }
         }
         return dataList;
     }
