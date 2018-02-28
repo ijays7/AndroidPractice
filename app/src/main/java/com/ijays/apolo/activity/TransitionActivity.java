@@ -67,6 +67,8 @@ public class TransitionActivity extends BaseActivity implements TransitionMainFr
             case 3:
                 fragment = new CircleAnimFragment();
                 break;
+            default:
+                break;
         }
         getSupportFragmentManager()
                 .beginTransaction()

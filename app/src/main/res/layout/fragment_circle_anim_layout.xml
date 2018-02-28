@@ -24,8 +24,8 @@
         android:id="@+id/iv_circle_2"
         android:layout_width="84dp"
         android:layout_height="84dp"
-        android:tint="@color/google_red"
         android:src="@drawable/circle_view_svg"
+        android:tint="@color/google_red"
         app:layout_constraintLeft_toRightOf="@id/iv_circle_1"
         app:layout_constraintRight_toLeftOf="@id/iv_circle_3" />
 
