@@ -5,6 +5,7 @@ import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
@@ -81,31 +82,40 @@ public class NestedActivity extends ImmersiveActivity {
             dataList.add(title);
         }
 
-        mRecyclerView.setAdapter(new RecyclerView.Adapter() {
-            @Override
-            public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-                int px32 = 32;
-                TextView textView = new TextView(NestedActivity.this);
-                textView.setPadding(px32, px32, px32, px32);
 
-                return new RecyclerView.ViewHolder(textView) {
-                    @Override
-                    public String toString() {
-                        return super.toString();
-                    }
-                };
-            }
+        mRecyclerView.setAdapter(new NestedRvAdapter(dataList));
+    }
 
-            @Override
-            public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-                TextView textView = (TextView) holder.itemView;
-                textView.setText(dataList.get(position));
-            }
+    class NestedRvAdapter extends RecyclerView.Adapter<NestRvVH> {
+        private List<String> dataList;
 
-            @Override
-            public int getItemCount() {
-                return dataList.size();
-            }
-        });
+         NestedRvAdapter(List<String> dataList) {
+            this.dataList = dataList;
+        }
+
+        @Override
+        public NestRvVH onCreateViewHolder(ViewGroup parent, int viewType) {
+            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_rv_nested_layout, parent, false);
+            return new NestRvVH(v);
+        }
+
+        @Override
+        public void onBindViewHolder(NestRvVH holder, int position) {
+            holder.textView.setText(dataList.get(position));
+        }
+
+        @Override
+        public int getItemCount() {
+            return dataList == null ? 0 : dataList.size();
+        }
+    }
+
+    class NestRvVH extends RecyclerView.ViewHolder {
+        private TextView textView;
+
+        public NestRvVH(View itemView) {
+            super(itemView);
+            textView = itemView.findViewById(R.id.tv_nested);
+        }
     }
 }
