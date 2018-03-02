@@ -116,6 +116,12 @@
                 android:layout_height="wrap_content"
                 android:text="Flexbox Layout test" />
 
+            <Button
+                android:id="@+id/bt_lottie_test"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Lottie test" />
+
             <android.support.v7.widget.AppCompatTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

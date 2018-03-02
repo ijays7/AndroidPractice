@@ -74,6 +74,11 @@ public class MainActivity extends ImmersiveActivity implements Toolbar.OnMenuIte
         startActivity(new Intent(MainActivity.this, FlexBoxTestActivity.class));
     }
 
+    @OnClick(R.id.bt_lottie_test)
+    void onClickLottieTest() {
+        startActivity(new Intent(MainActivity.this, LottieTestActivity.class));
+    }
+
     @OnClick(R.id.fab)
     void onClickFab(View view) {
         //保存ScrollView的图像并存储
